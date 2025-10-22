@@ -1,0 +1,218 @@
+/* === DARK THEME (Default) === */
+:root {
+  --bg: #181716;
+  --card: #1e293b;
+  --heading: #38bdf8;     /* Bright Cyan */
+  --subheading: #a855f7;  /* Soft Purple */
+  --content: #f1f5f9;     /* White-ish Text */
+  --accent1: #6366f1;
+  --accent2: #3b82f6;
+  --muted: #c4b9c2;
+}
+
+/* === LIGHT THEME === */
+body.light-mode {
+  --bg: #f8fafc;
+  --card: #ffffff;
+  --heading: #0ea5e9;     /* Sky Blue */
+  --subheading: #7c3aed;  /* Purple */
+  --content: #334155;     /* Dark Gray Text */
+  --accent1: #7c3aed;
+  --accent2: #0ea5e9;
+  --muted: #475569;
+}
+
+/* === GLOBAL STYLES === */
+body {
+  background: var(--bg);
+  color: var(--content);
+  font-family: 'Poppins', sans-serif;
+  transition: all 0.6s ease;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* Header */
+header {
+  background: var(--card);
+  padding: 20px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+}
+header h1 {
+  color: var(--heading);
+}
+nav a {
+  color: var(--muted);
+  text-decoration: none;
+  margin-left: 20px;
+  transition: 0.3s;
+}
+nav a:hover {
+  color: var(--subheading);
+  transform: scale(1.05);
+}
+
+/* Theme Toggle */
+#theme-toggle {
+  background: transparent;
+  color: var(--heading);
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+#theme-toggle:hover {
+  transform: rotate(25deg);
+}
+
+/* Hero */
+.hero {
+  text-align: center;
+  padding: 100px 20px 60px;
+}
+.hero h2 {
+  color: var(--heading);
+  font-size: 38px;
+}
+.hero h4 {
+  color: var(--subheading);
+  margin-top: 10px;
+  font-size: 18px;
+}
+.btn {
+  display: inline-block;
+  margin-top: 20px;
+  background: linear-gradient(90deg, var(--accent1), var(--accent2));
+  color: #fff;
+  padding: 10px 22px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+.btn:hover {
+  transform: translateY(-4px);
+  opacity: 0.9;
+}
+
+/* Section Titles */
+.section-title {
+  font-size: 26px;
+  color: var(--subheading);
+  margin-bottom: 20px;
+  border-bottom: 2px solid var(--heading);
+  display: inline-block;
+}
+
+/* Skills */
+.skills {
+  max-width: 700px;
+  margin: auto;
+}
+.skill p {
+  color: var(--content);
+}
+.bar {
+  width: 100%;
+  height: 10px;
+  background: var(--card);
+  border-radius: 5px;
+  overflow: hidden;
+}
+.progress {
+  height: 100%;
+  width: 0%;
+  background: var(--subheading);
+  transition: width 1.5s ease-in-out;
+}
+.progress.html { width: 95%; }
+.progress.css { width: 90%; }
+.progress.js { width: 85%; }
+.progress.react { width: 80%; }
+.progress.java { width: 75%; }
+.progress.python { width: 65%; }
+
+/* Cards */
+.project-list, .achievement-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+.card {
+  background: var(--card);
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.1);
+  transition: 0.4s ease;
+}
+.card h4 {
+  color: var(--heading);
+}
+.card p {
+  color: var(--content);
+}
+.glow:hover {
+  box-shadow: 0 0 20px var(--heading);
+  transform: translateY(-6px);
+}
+
+/* Contact */
+.contact {
+  text-align: center;
+  padding-bottom: 40px;
+}
+.contact a {
+  color: var(--heading);
+  text-decoration: none;
+  transition: 0.3s;
+}
+.contact a:hover {
+  color: var(--subheading);
+}
+
+/* Footer */
+footer {
+  background: var(--card);
+  text-align: center;
+  padding: 20px;
+  color: var(--muted);
+}
+
+/* Background Animation */
+.background-animation {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 25% 25%, rgba(56,189,248,0.15), transparent 70%),
+              radial-gradient(circle at 75% 75%, rgba(168,85,247,0.15), transparent 70%);
+  animation: moveBg 15s infinite alternate;
+  z-index: -1;
+}
+@keyframes moveBg {
+  0% { background-position: 0 0; }
+  100% { background-position: 100% 100%; }
+}
+
+/* Fade-in effect */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 1s ease;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+  header { flex-direction: column; }
+  nav { margin-top: 10px; }
+  section { padding: 30px; }
+}
